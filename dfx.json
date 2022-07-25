@@ -16,6 +16,10 @@
         "dist/challenges_assets/"
       ],
       "type": "assets"
+    },
+    "challenges-day1": {
+      "main": "src/challenges/day1.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
