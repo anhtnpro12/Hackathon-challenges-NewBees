@@ -1,5 +1,6 @@
 import Nat "mo:base/Nat";
 import Array "mo:base/Array";
+import Debug "mo:base/Debug";
 
 actor {
     public func add(n : Nat, m : Nat) : async Nat {
@@ -53,8 +54,9 @@ actor {
         });
     };
 
-    public func selection_sort(array : [Nat]) : async [Nat] {
-        
-        
+    public func selection_sort(array : [Nat]) : async () {
+        for (var i = 0; i < array.length; i++) {
+            Debug.print(i);
+        }        
     };
 };
