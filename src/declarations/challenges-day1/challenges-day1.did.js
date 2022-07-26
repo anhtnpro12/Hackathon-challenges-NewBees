@@ -12,6 +12,7 @@ export const idlFactory = ({ IDL }) => {
         [IDL.Vec(IDL.Nat)],
         [],
       ),
+    'selection_sort' : IDL.Func([IDL.Vec(IDL.Nat)], [IDL.Vec(IDL.Nat)], []),
     'square' : IDL.Func([IDL.Nat], [IDL.Nat], []),
     'sum_of_array' : IDL.Func([IDL.Vec(IDL.Nat)], [IDL.Nat], []),
   });

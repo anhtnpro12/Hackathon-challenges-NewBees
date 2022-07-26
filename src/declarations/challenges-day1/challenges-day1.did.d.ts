@@ -10,6 +10,7 @@ export interface _SERVICE {
   'is_even' : ActorMethod<[bigint], boolean>,
   'maximum' : ActorMethod<[Array<bigint>], bigint>,
   'remove_from_array' : ActorMethod<[Array<bigint>, bigint], Array<bigint>>,
+  'selection_sort' : ActorMethod<[Array<bigint>], Array<bigint>>,
   'square' : ActorMethod<[bigint], bigint>,
   'sum_of_array' : ActorMethod<[Array<bigint>], bigint>,
 }

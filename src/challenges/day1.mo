@@ -1,6 +1,7 @@
 import Nat "mo:base/Nat";
 import Array "mo:base/Array";
 import Debug "mo:base/Debug";
+import Iter "mo:base/Iter";
 
 actor {
     public func add(n : Nat, m : Nat) : async Nat {
@@ -25,6 +26,9 @@ actor {
     };
 
     public func divide(n : Nat, m : Nat) : async Bool {
+        if (m == 0) {
+            return false;
+        };
         return n % m == 0;
     };
 
@@ -54,9 +58,22 @@ actor {
         });
     };
 
-    public func selection_sort(array : [Nat]) : async () {
-        for (var i = 0; i < array.length; i++) {
-            Debug.print(i);
-        }        
+    public func selection_sort(array : [Nat]) : async [Nat] {        
+        let size = array.size();
+        var array_mu = Array.thaw<Nat>(array);
+
+        for (i in Iter.range(0, size - 1)) {
+            var idMin = i;
+            for (j in Iter.range(i + 1, size - 1)) {
+                if (array_mu[idMin] > array_mu[j]) {
+                    idMin := j;
+                };
+            };
+            let temp = array_mu[i];
+            array_mu[i] := array_mu[idMin];
+            array_mu[idMin] := temp;
+        };             
+
+        return Array.freeze<Nat>(array_mu);
     };
 };
