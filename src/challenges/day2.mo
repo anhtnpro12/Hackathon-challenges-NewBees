@@ -5,6 +5,8 @@ import Char "mo:base/Char";
 import Text "mo:base/Text";
 import H "mo:base/HashMap";
 import Iter "mo:base/Iter";
+import Array "mo:base/Array";
+import Option "mo:base/Option";
 
 actor {
     public func nat_to_nat8(n : Nat) : async Nat8 {
@@ -76,5 +78,77 @@ actor {
 
     public func size_in_bytes(t : Text) : async Nat {
         return Text.encodeUtf8(t).size(); 
+    };
+
+    public func bubble_sort(array : [Nat]) : async [Nat] {
+        let size = array.size();
+        var array_mu = Array.thaw<Nat>(array);
+
+        for (i in Iter.range(0, size - 2)) {
+            for (j in Iter.range(0, size - i - 2)) {
+                if (array_mu[j] > array_mu[j + 1]) {
+                    let temp = array_mu[j];
+                    array_mu[j] := array_mu[j+1];
+                    array_mu[j+1] := temp;
+                };
+            };
+        };
+
+        return Array.freeze<Nat>(array_mu);
+    };
+
+    public func nat_opt_to_nat(n : ?Nat, m : Nat) : async Nat {
+        return Option.get(n, m);
+    };    
+
+    public func day_of_the_week(n: Nat) : async ?Text {
+        do ? {
+            switch n {
+                case (1) { "Monday" };
+                case (2) { "Tuesday" };
+                case (3) { "Wednesday" };
+                case (4) { "Thursday" };
+                case (5) { "Friday" };
+                case (6) { "Saturday" };
+                case (7) { "Sunday" };
+                case (_) { null ! };
+            };
+        };
+    };
+
+    public func populate_array(arr : [?Nat]) : async [Nat] {
+        return Array.map<?Nat, Nat>(arr, func(val : ?Nat) : Nat {
+            switch (val) {
+                case (null) {return 0;};
+                case (?value) {return value;};
+            }
+        })
+    };
+
+    public func sum_of_array(arr : [Nat]) : async Nat {
+        return  Array.foldLeft<Nat, Nat>(arr, 0, func(sum, val) {
+            return sum + val;
+        });
+    };
+
+    public func squared_array(arr : [Nat]) : async [Nat] {
+        return  Array.map<Nat, Nat>(arr, func(val) {
+            return val * val;
+        });
+    };
+
+    public func increase_by_index(arr : [Nat]) : async [Nat] {
+        return  Array.mapEntries<Nat, Nat>(arr, func(val, id) {
+            return val  + id;
+        });
+    };
+
+    func contains<A>(list : [A], a : A, f : (A, A) -> Bool) : async Bool{
+        for (val in list.vals()){
+            if(f(val, a) == true){
+                return true;
+            };
+        };
+        return false;
     };
 };
