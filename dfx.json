@@ -20,6 +20,10 @@
     "challenges-day1": {
       "main": "src/challenges/day1.mo",
       "type": "motoko"
+    },
+    "challenges-day2": {
+      "main": "src/challenges/day2.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
