@@ -5,6 +5,7 @@ service : {
   day_of_the_week: (nat) -> (opt text);
   decimal_to_bits: (nat) -> (text);
   duplicated_character: (text) -> (text);
+  increase_by_index: (vec nat) -> (vec nat);
   is_inside: (text, nat32) -> (bool);
   max_number_with_n_bits: (nat) -> (nat);
   nat_opt_to_nat: (opt nat, nat) -> (nat);

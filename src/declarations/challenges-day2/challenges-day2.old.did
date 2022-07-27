@@ -5,12 +5,14 @@ service : {
   day_of_the_week: (nat) -> (opt text);
   decimal_to_bits: (nat) -> (text);
   duplicated_character: (text) -> (text);
+  increase_by_index: (vec nat) -> (vec nat);
   is_inside: (text, nat32) -> (bool);
   max_number_with_n_bits: (nat) -> (nat);
   nat_opt_to_nat: (opt nat, nat) -> (nat);
   nat_to_nat8: (nat) -> (nat8);
   populate_array: (vec opt nat) -> (vec nat);
   size_in_bytes: (text) -> (nat);
+  squared_array: (vec nat) -> (vec nat);
   sum_of_array: (vec nat) -> (nat);
   trim_whitespace: (text) -> (text);
 }

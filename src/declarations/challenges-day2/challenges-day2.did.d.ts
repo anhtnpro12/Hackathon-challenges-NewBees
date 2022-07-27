@@ -8,6 +8,7 @@ export interface _SERVICE {
   'day_of_the_week' : ActorMethod<[bigint], [] | [string]>,
   'decimal_to_bits' : ActorMethod<[bigint], string>,
   'duplicated_character' : ActorMethod<[string], string>,
+  'increase_by_index' : ActorMethod<[Array<bigint>], Array<bigint>>,
   'is_inside' : ActorMethod<[string, number], boolean>,
   'max_number_with_n_bits' : ActorMethod<[bigint], bigint>,
   'nat_opt_to_nat' : ActorMethod<[[] | [bigint], bigint], bigint>,

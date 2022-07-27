@@ -6,6 +6,7 @@ export const idlFactory = ({ IDL }) => {
     'day_of_the_week' : IDL.Func([IDL.Nat], [IDL.Opt(IDL.Text)], []),
     'decimal_to_bits' : IDL.Func([IDL.Nat], [IDL.Text], []),
     'duplicated_character' : IDL.Func([IDL.Text], [IDL.Text], []),
+    'increase_by_index' : IDL.Func([IDL.Vec(IDL.Nat)], [IDL.Vec(IDL.Nat)], []),
     'is_inside' : IDL.Func([IDL.Text, IDL.Nat32], [IDL.Bool], []),
     'max_number_with_n_bits' : IDL.Func([IDL.Nat], [IDL.Nat], []),
     'nat_opt_to_nat' : IDL.Func([IDL.Opt(IDL.Nat), IDL.Nat], [IDL.Nat], []),
